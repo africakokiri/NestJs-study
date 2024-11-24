@@ -15,6 +15,14 @@ export class PostsController {
     return await this.postsService.getAllPosts();
   }
 
+  @Get(':id')
+  @ApiOperation({
+    summary: '요청한 ID의 포스트를 불러옵니다.',
+  })
+  async getPost(@Param('id') id: number) {
+    return await this.postsService.getCertainPost(id);
+  }
+
   @Post()
   @ApiOperation({
     summary: '요청한 정보를 바탕으로 포스트를 생성합니다.',
