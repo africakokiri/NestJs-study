@@ -5,6 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { DevtoolsModule } from '@nestjs/devtools-integration';
 import { PostsModule } from './posts/posts.module';
 import { PostsModel } from 'src/posts/posts.entity';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { PostsModel } from 'src/posts/posts.entity';
       http: process.env.NODE_ENV !== 'production',
     }),
     PostsModule,
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -1,10 +1,8 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import { BaseModel } from 'src/common/base.entity';
+import { Column, Entity } from 'typeorm';
 
 @Entity()
-export class PostsModel {
-  @PrimaryGeneratedColumn()
-  id: number;
-
+export class PostsModel extends BaseModel {
   @Column()
   author: string;
 
@@ -23,10 +21,4 @@ export class PostsModel {
     default: 0,
   })
   commentCount: number;
-
-  @CreateDateColumn()
-  createdAt: Date;
-
-  @UpdateDateColumn()
-  updatedAt: Date;
 }
