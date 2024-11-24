@@ -1,4 +1,4 @@
-import { PickType } from '@nestjs/swagger';
+import { PartialType, PickType } from '@nestjs/swagger';
 import { IsString } from 'class-validator';
 import { PostsModel } from 'src/posts/posts.entity';
 
@@ -12,3 +12,5 @@ export class CreatePostDto extends PickType(PostsModel, ['author', 'title', 'con
   @IsString()
   content: string;
 }
+
+export class PatchPostDto extends PartialType(CreatePostDto) {}
