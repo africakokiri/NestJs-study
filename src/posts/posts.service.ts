@@ -39,4 +39,14 @@ export class PostsService {
 
     return await this.postsRepository.save(newPost);
   }
+
+  async deletePost(id: number) {
+    const result = await this.postsRepository.delete(id);
+
+    if (result.affected === 0) {
+      throw new BadRequestException('요청한 ID의 포스트가 없습니다.');
+    }
+
+    return true;
+  }
 }
