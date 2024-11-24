@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DevtoolsModule } from '@nestjs/devtools-integration';
+import { PostsModule } from './posts/posts.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { DevtoolsModule } from '@nestjs/devtools-integration';
     DevtoolsModule.register({
       http: process.env.NODE_ENV !== 'production',
     }),
+    PostsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
