@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { DevtoolsModule } from '@nestjs/devtools-integration';
 
 @Module({
   imports: [
@@ -14,6 +15,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       database: 'kokiri',
       entities: [],
       synchronize: true,
+    }),
+    DevtoolsModule.register({
+      http: process.env.NODE_ENV !== 'production',
     }),
   ],
   controllers: [AppController],
